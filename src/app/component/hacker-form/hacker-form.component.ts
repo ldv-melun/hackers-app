@@ -98,7 +98,8 @@ export class HackerFormComponent implements OnInit {
     let ip = this.hackerForm.controls.ip.value + ''
     console.log("ip " + ip)
     this.lookupIpService.getGeoLocationIp(ip).subscribe((res: IpLocation) => {
-      console.log("Reçu du service distant")
+      console.log("Reçu du service distant :: ")
+      console.log(res)
       this.hackerForm.controls.countryName.setValue(res.country_name)
       this.hackerForm.controls.regionName.setValue(res.region_name)
       this.hackerForm.controls.city.setValue(res.city)
