@@ -5,7 +5,7 @@ import { IHacker } from 'src/app/models/IHacker';
 import { LookupIpService } from 'src/app/service/lookup-ip.service';
 import { ManagerHackerService } from 'src/app/service/manager-hacker.service';
 
-interface IpLocation {
+interface IpStackLocation {
   ip: string
   type: string
   continent_code: string
@@ -65,7 +65,6 @@ interface Ipapi {
     country_population: number
     asn: string
     org: string
-  
 }
 
 

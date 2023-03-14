@@ -7,25 +7,36 @@ En test de déploiement, via github pages
 
 ## Security and not
 
-étant donné que cette application utilise un service gratuit de localisation d'IP qui ne propose pas d'accès sécurisé (http only), par défaut les requêtes sortant or https sont bloquée. 
+Le fournisseur de géolocalisation d'IP que nous avions sélectionné (http://api.ipstack.com) ne propose pas d'accès sécurisé (http only).
 
-Pour remédier temporairement à cette sécurité, nous devons demandé au navigateur de permettre les appels API en http, via une directive meta
+Ceci est **incompatible** avec la solution GitHub Pages qui est en https. Ainsi, pour des raisons de sécurité, les requêtes sortantes en http sont bloquées. 
 
-```html
- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-```
+Nous avons du changer de fournisseur API de gélocalisation. 
+
+Nous avons opté pour https://ipapi.co/#pricing qui propose un accès https avec la solution gratuite.
+
+Par contre, nous n'avons pas de lien vers le drapeau. Nous utilisons celui du précédent fournisseur (qui propose librement ce lien en https) 
 
 ## Build
 
-Dans le terminal de l'application, lancer
+Sur GutHub, il est nécessaire d'activer `github pages` en désignant la bonne branche et le dossier `docs`
+
+Côté client, dans le terminal de l'application, lancer
 
  `ng build --output-path docs --base-href /hackers-app/` 
  
  pour diriger les artefacts de construction dans le dossier `docs\`.
 
-Sur GutHub, il est nécessaire d'activer `github pages` en désignant la bonne branche et le dossier `docs`
+Puis commit et push.
 
 ## lien du déploiement
+
+L'application est accessible via : 
+```
+https://<nom user github>.github.io/<non projet>
+```
+
+Dans notre cas :
 
 [https://ldv-melun.github.io/hackers-app/](https://ldv-melun.github.io/hackers-app/)
 
