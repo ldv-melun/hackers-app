@@ -1,0 +1,40 @@
+<style>
+    table.center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
+<table *ngIf="hackers.length > 0; else hackersEmpty" class="table is-striped center">
+    <thead>
+        <tr>
+            <th>IP</th>
+            <th>Pays</th>
+            <th>Drapeau</th>
+            <th>Région</th>
+            <th>Ville</th>
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let hacker of hackers">
+            <td>{{ hacker.ip }}</td>
+            <td> <span>{{ hacker.countryName }}</span></td>
+            <td> <img src="{{hacker.countryFlag}}" width="49" height="37"></td>
+            <td>{{ hacker.regionName }}</td>
+            <td>{{ hacker.city }}</td>
+            <td>
+                <i class="bi bi-pencil-square" (click)="editHacker(hacker)" title="edit" style="color: green; cursor: pointer;"></i>
+                &nbsp;
+                <i class="bi bi-database-x" (click)="deleteHacker(hacker)" title="delete" style="color: green; cursor: pointer;"></i>
+            </td>
+        </tr>        
+    </tbody>
+    <tfoot>
+        <div style="font-weight:bold;">Nombre d'Hackers : {{ hackers.length }}</div>
+    </tfoot>
+</table>
+
+<ng-template #hackersEmpty>
+    <p>Pas de hackers ! </p>
+</ng-template>
