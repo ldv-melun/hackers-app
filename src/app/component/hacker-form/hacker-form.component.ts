@@ -36,6 +36,39 @@ interface IpLocation {
   }
 }
 
+interface Ipapi {
+  
+    ip: string
+    network: string
+    version: string,
+    city: string
+    region: string
+    region_code: string
+    country: string
+    country_name: string
+    country_code: string
+    country_code_iso3: string
+    country_capital: string
+    country_tld: string
+    continent_code: string
+    in_eu: boolean
+    postal: string,
+    latitude: number
+    longitude: number
+    timezone: string
+    utc_offset: string
+    country_calling_code: string
+    currency: string
+    currency_name: string
+    languages: string
+    country_area: number
+    country_population: number
+    asn: string
+    org: string
+  
+}
+
+
 @Component({
   selector: 'app-hacker-form',
   templateUrl: './hacker-form.component.html',
@@ -56,7 +89,6 @@ export class HackerFormComponent implements OnInit {
   constructor(
     private managerHackerService: ManagerHackerService,
     private lookupIpService: LookupIpService) {
-
   }
 
   ngOnInit(): void {
@@ -97,13 +129,13 @@ export class HackerFormComponent implements OnInit {
   lookup() {
     let ip = this.hackerForm.controls.ip.value + ''
     console.log("ip " + ip)
-    this.lookupIpService.getGeoLocationIp(ip).subscribe((res: IpLocation) => {
+    this.lookupIpService.getGeoLocationIp(ip).subscribe((res:Ipapi) => {
       console.log("Reçu du service distant :: ")
       console.log(res)
       this.hackerForm.controls.countryName.setValue(res.country_name)
-      this.hackerForm.controls.regionName.setValue(res.region_name)
+      this.hackerForm.controls.regionName.setValue(res.region)
       this.hackerForm.controls.city.setValue(res.city)
-      this.hackerForm.controls.countryFlag.setValue(res.location.country_flag)
+      this.hackerForm.controls.countryFlag.setValue(res.country_code.toLowerCase())
     })
 
   }

@@ -11,7 +11,7 @@ export class LookupIpService {
   constructor(private http:HttpClient) { }
 
   public getGeoLocationIp(ip: string) : Observable<any> {
-    let url = environment.apiBaseUrl + ip + '?output=json&access_key=' + environment.keyAPI
+    let url = environment.apiBaseUrl + ip + '/json/' // '?output=json&access_key=' + environment.keyAPI
     console.log("send url : " + url)
     return this.http.get(url);
   }
