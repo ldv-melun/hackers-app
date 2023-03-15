@@ -37,10 +37,9 @@ interface IpStackLocation {
 }
 
 interface Ipapi {
-  
     ip: string
     network: string
-    version: string,
+    version: string
     city: string
     region: string
     region_code: string
@@ -52,7 +51,7 @@ interface Ipapi {
     country_tld: string
     continent_code: string
     in_eu: boolean
-    postal: string,
+    postal: string
     latitude: number
     longitude: number
     timezone: string
@@ -110,7 +109,6 @@ export class HackerFormComponent implements OnInit {
 
   }
   ipAlreadyExists(): any {
-    //throw new Error('Method not implemented.');
     return this.managerHackerService.isIpExistsInLS(this.hackerForm.controls.ip.value)
   }
 
