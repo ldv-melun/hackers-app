@@ -55,6 +55,7 @@ export class ManagerHackerService {
       h.city = hacker.city
       h.countryName = hacker.countryName
       h.regionName = hacker.regionName
+      h.countryFlag = hacker.countryFlag
     }
     localStorage.setItem("badguys", JSON.stringify(hackers))
     this.updateHackersListEvent.emit(hackers)
