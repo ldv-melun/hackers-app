@@ -2,6 +2,8 @@
 
 Projet en lien avec un TD, pour apprenti développeur
 
+https://ldv-melun.github.io/sio-slam/sio-component/td3-hackers.html
+
 En test de déploiement, via github pages
 
 
